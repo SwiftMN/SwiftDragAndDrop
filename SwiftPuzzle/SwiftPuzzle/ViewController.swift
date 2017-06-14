@@ -9,5 +9,14 @@
 import UIKit
 
 final class ViewController: UIViewController {
+  
   @IBOutlet weak var collectionView: UICollectionView!
+
+  private var provider: CollectionViewProvider?
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    provider = CollectionViewProvider(collectionView: collectionView)
+  }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43402F5B1EF1A9C6002BDB54 /* CollectionViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43402F5A1EF1A9C6002BDB54 /* CollectionViewProvider.swift */; };
+		43402F5D1EF1AF0E002BDB54 /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43402F5C1EF1AF0E002BDB54 /* Puzzle.swift */; };
+		437756CB1EE73BAC004F9423 /* PuzzleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437756CA1EE73BAC004F9423 /* PuzzleCollectionViewCell.swift */; };
 		43E5647A1EE6F5AD00D176D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E564791EE6F5AD00D176D5 /* AppDelegate.swift */; };
 		43E5647C1EE6F5AD00D176D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E5647B1EE6F5AD00D176D5 /* ViewController.swift */; };
 		43E5647F1EE6F5AD00D176D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E5647D1EE6F5AD00D176D5 /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43402F5A1EF1A9C6002BDB54 /* CollectionViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewProvider.swift; sourceTree = "<group>"; };
+		43402F5C1EF1AF0E002BDB54 /* Puzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle.swift; sourceTree = "<group>"; };
+		437756CA1EE73BAC004F9423 /* PuzzleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleCollectionViewCell.swift; sourceTree = "<group>"; };
 		43E564761EE6F5AD00D176D5 /* SwiftPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E564791EE6F5AD00D176D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43E5647B1EE6F5AD00D176D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +66,9 @@
 				43E564801EE6F5AD00D176D5 /* Assets.xcassets */,
 				43E564821EE6F5AD00D176D5 /* LaunchScreen.storyboard */,
 				43E564851EE6F5AD00D176D5 /* Info.plist */,
+				437756CA1EE73BAC004F9423 /* PuzzleCollectionViewCell.swift */,
+				43402F5A1EF1A9C6002BDB54 /* CollectionViewProvider.swift */,
+				43402F5C1EF1AF0E002BDB54 /* Puzzle.swift */,
 			);
 			path = SwiftPuzzle;
 			sourceTree = "<group>";
@@ -135,7 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43402F5D1EF1AF0E002BDB54 /* Puzzle.swift in Sources */,
 				43E5647C1EE6F5AD00D176D5 /* ViewController.swift in Sources */,
+				43402F5B1EF1A9C6002BDB54 /* CollectionViewProvider.swift in Sources */,
+				437756CB1EE73BAC004F9423 /* PuzzleCollectionViewCell.swift in Sources */,
 				43E5647A1EE6F5AD00D176D5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +194,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -237,6 +251,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -312,6 +328,7 @@
 				43E5648A1EE6F5AD00D176D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
