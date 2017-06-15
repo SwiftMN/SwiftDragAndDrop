@@ -77,7 +77,28 @@ extension CollectionViewProvider: UICollectionViewDropDelegate {
     return session.hasItemsConforming(toTypeIdentifiers: UIImage.readableTypeIdentifiersForItemProvider)
   }
 
+  // Use the coordinator to perform additional animations
   public func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+    if coordinator.proposal.operation == .copy {
+      print("Trying to copy")
+      if let dragItem = coordinator.items.first?.dragItem {
+
+        let _ = dragItem.itemProvider.loadObject(ofClass: UIImage.self) { image, _ in
+          if let droppedInImage = image as? UIImage {
+            DispatchQueue.main.async {
+              // Need to async fetch this image
+              print("Dropping an image")
+              self.puzzle = Puzzle(image: droppedInImage, square: self.size)
+
+              /// NOTE: If we were using Placeholders. Don't use reloadData
+              /// Use performBatchUpdates. It'll just strip out placeholders that may still be needed
+              collectionView.reloadData()
+            }
+          }
+        }
+      }
+      return
+    }
     guard let finalIndexPath = coordinator.destinationIndexPath, coordinator.proposal.operation == .move else { return }
 
     // Where we dropping this unit?
@@ -105,8 +126,14 @@ extension CollectionViewProvider: UICollectionViewDropDelegate {
     }
   }
 
+  // Make this fast to not block MainThread long
   public func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
-    print("Hovering around \(String(describing: destinationIndexPath))")
+    //print("Hovering around \(String(describing: destinationIndexPath))")
+
+    // Dropping from another app
+    guard let _ = session.localDragSession else {
+      return UICollectionViewDropProposal(operation: .copy)
+    }
 
     // If the User were to drop at this indexPath, How would you handle it?
     return UICollectionViewDropProposal(dropOperation: .move, intent: .insertAtDestinationIndexPath)
@@ -115,6 +142,7 @@ extension CollectionViewProvider: UICollectionViewDropDelegate {
   func collectionView(_ collectionView: UICollectionView, dropSessionDidEnter session: UIDropSession) {
     print("Drop Session Did Enter")
   }
+
   func collectionView(_ collectionView: UICollectionView, dropSessionDidEnd session: UIDropSession) {
     print("Drop Session Did End")
   }
