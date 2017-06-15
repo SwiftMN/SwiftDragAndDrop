@@ -73,6 +73,8 @@ extension CollectionViewProvider: UICollectionViewDragDelegate {
 
 //MARK: UICollectionViewDropDelegate
 extension CollectionViewProvider: UICollectionViewDropDelegate {
+
+  // Can you handle some data from other apps?
   func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
     return session.hasItemsConforming(toTypeIdentifiers: UIImage.readableTypeIdentifiersForItemProvider)
   }
