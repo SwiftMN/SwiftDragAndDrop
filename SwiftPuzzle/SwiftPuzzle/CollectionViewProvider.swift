@@ -73,6 +73,10 @@ extension CollectionViewProvider: UICollectionViewDragDelegate {
 
 //MARK: UICollectionViewDropDelegate
 extension CollectionViewProvider: UICollectionViewDropDelegate {
+  func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
+    return session.hasItemsConforming(toTypeIdentifiers: UIImage.readableTypeIdentifiersForItemProvider)
+  }
+
   public func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
     guard let finalIndexPath = coordinator.destinationIndexPath, coordinator.proposal.operation == .move else { return }
 
