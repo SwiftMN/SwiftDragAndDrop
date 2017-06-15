@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import GameplayKit
 
 struct Puzzle {
 
-  private let originalImages: [UIImage]
+  private var originalImages: [UIImage]
 
   init(image: UIImage, square: Int) {
     let scale = image.scale
@@ -35,7 +36,8 @@ struct Puzzle {
       y += height
     }
 
-    self.originalImages = images
+    // The objects in the array are shuffled based on a Fisher-Yates shuffle
+    self.originalImages = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: images) as! [UIImage]
   }
 
   func squares() -> Int {
@@ -48,5 +50,11 @@ struct Puzzle {
     }
 
     return originalImages[at]
+  }
+
+  mutating func swap(from: Int, to: Int) {
+    let photoToSwap = originalImages[from]
+    originalImages.remove(at: from)
+    originalImages.insert(photoToSwap, at: to)
   }
 }
