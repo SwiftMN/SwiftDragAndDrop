@@ -31,6 +31,8 @@ final class CollectionViewProvider: NSObject {
 
 //MARK: UICollectionViewDragDelegate
 extension CollectionViewProvider: UICollectionViewDragDelegate {
+
+  // First call out the gate
   func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
     // Need an object
     let image = puzzle.image(at: indexPath.row)
@@ -100,7 +102,17 @@ extension CollectionViewProvider: UICollectionViewDropDelegate {
   }
 
   public func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
+    print("Hovering around \(String(describing: destinationIndexPath))")
+
+    // If the User were to drop at this indexPath, How would you handle it?
     return UICollectionViewDropProposal(dropOperation: .move, intent: .insertAtDestinationIndexPath)
+  }
+
+  func collectionView(_ collectionView: UICollectionView, dropSessionDidEnter session: UIDropSession) {
+    print("Drop Session Did Enter")
+  }
+  func collectionView(_ collectionView: UICollectionView, dropSessionDidEnd session: UIDropSession) {
+    print("Drop Session Did End")
   }
 }
 
